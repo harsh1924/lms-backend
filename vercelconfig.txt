@@ -1,0 +1,33 @@
+To deploy on vercel add
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "server.js",
+            "use": "@vercel/node",
+            "config": {
+                "includeFiles": [
+                    "dist/**"
+                ]
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "server.js"
+        }
+    ]
+}  to SERVER
+
+
+and
+
+
+{ 
+    "version": 2, 
+    "rewrites": [{
+         "source": "/(.*)", 
+         "destination": "/api" 
+    }] 
+} on CLIENT
